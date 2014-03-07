@@ -116,7 +116,7 @@ end
 # validate a session
 post "/validate" do
   if sesssion = Session[uuid: params[:session]]
-    status 200
+    session.user.to_json
   else
     halt 404
   end  

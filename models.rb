@@ -36,6 +36,10 @@ class User < Sequel::Model
     # to be implemented
   end
   
+  def to_json(*a)
+    {name: name, email: email}.to_json
+  end
+  
 end
 
 class Resource < Sequel::Model
