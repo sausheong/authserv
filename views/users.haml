@@ -1,0 +1,32 @@
+.content
+  .row
+    .lead
+      %a.pull-right{href:"/users/new"}
+        %i.fa.fa-plus
+        Add new user
+  .row  
+    %table.table.table-striped
+      %thead
+        %th.col-md-3 Name
+        %th.col-md-4 Email
+        %th.col-md-2 Created
+        %th.col-md-3 &nbsp;
+      %tbody
+      - @users.each do |user|
+        - unless user == @user
+          %tr
+            %td=user.name
+            %td=user.email
+            %td=user.created_at.strftime DATETIME_FORMAT
+            %td{style: 'text-align: right'}
+              %a.btn.btn-xs.btn-default{href:"/users/edit/#{user.uuid}"}
+                %i.fa.fa-pencil
+                edit          
+              %a.btn.btn-xs.btn-default{href:"/users/reset/#{user.uuid}"}
+                %i.fa.fa-key
+                reset
+              %a.btn.btn-xs.btn-default{href:"/users/remove/#{user.uuid}"}
+                %i.fa.fa-times
+                remove
+            
+            

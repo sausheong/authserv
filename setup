@@ -1,0 +1,6 @@
+psql -h localhost -c "create user authserv with password 'authserv'"
+psql -h localhost -c "drop database if exists authserv"
+psql -h localhost -c "create database authserv"
+psql -h localhost -c "grant all privileges on database authserv to authserv"
+
+sequel -m migrations postgres://authserv:authserv@localhost:5432/authserv

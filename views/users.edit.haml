@@ -1,0 +1,16 @@
+.content
+  .row
+    .lead.text-info Modify existing user
+  .row
+    .col-md-12
+      %form{method: :post, action: "/users"}
+        .form-group
+          %label Name
+          %input.form-control{name: "name", placeholder: "User's name", value: @selected_user.name}
+        .form-group
+          %label Email
+          %input.form-control{name: "email", placeholder: "User's email (will be used for login)", value: @selected_user.email}
+    
+        %hr
+        %button.btn.btn-primary{type: :submit} Modify user
+        %a.btn.btn-default{href: "/"} Cancel

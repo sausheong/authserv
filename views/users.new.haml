@@ -1,0 +1,16 @@
+.content
+  .row
+    .lead.text-info Create a new user in authserv
+  .row
+    .col-md-12
+      %form{method: :post, action: "/users"}
+        .form-group
+          %label Name
+          %input.form-control{name: "name", placeholder: "User's name"}
+        .form-group
+          %label Email
+          %input.form-control{name: "email", placeholder: "User's email (will be used for login)"}
+    
+        %hr
+        %button.btn.btn-primary{type: :submit} Create user
+        %a.btn.btn-default{href: "/"} Cancel
